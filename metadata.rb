@@ -1,8 +1,8 @@
 #
-# Author:: Benjamin Black (<b@b3k.us>), Sean Cribbs (<sean@basho.com>), Seth Thomas (<sthomas@basho.com>)
+# Author:: Benjamin Black (<b@b3k.us>), Sean Cribbs (<sean@basho.com>), Seth Thomas (<sthomas@basho.com>), and Hector Castro (<hector@basho.com>)
 # Cookbook Name:: riak
 #
-# Copyright (c) 2013 Basho Technologies, Inc.
+# Copyright (c) 2014 Basho Technologies, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,11 +27,9 @@ version           "2.4.3"
 recipe            "riak", "Installs Riak from a package"
 recipe            "riak::source", "Installs Erlang and Riak from source"
 
-%w{apt build-essential erlang git sysctl ulimit}.each do |d|
+%w{apt build-essential erlang git sysctl ulimit yum yum-epel}.each do |d|
   depends d
 end
-
-depends "yum", "< 3.0"
 
 %w{ubuntu debian centos redhat fedora}.each do |os|
   supports os

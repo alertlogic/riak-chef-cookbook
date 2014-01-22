@@ -4,6 +4,6 @@ metadata
 
 group :integration do
   cookbook "apt"
-  cookbook "yum", "< 3.0"
+  cookbook "yum"
   cookbook "minitest-handler"
 end
