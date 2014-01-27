@@ -27,7 +27,7 @@ version           "2.4.3"
 recipe            "riak", "Installs Riak from a package"
 recipe            "riak::source", "Installs Erlang and Riak from source"
 
-%w{apt build-essential erlang git sysctl ulimit yum yum-epel}.each do |d|
+%w{apt build-essential erlang git java sysctl ulimit yum yum-epel}.each do |d|
   depends d
 end
 
