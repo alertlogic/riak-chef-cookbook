@@ -20,12 +20,6 @@
 include_recipe "ulimit" unless node['platform_family'] == "debian"
 include_recipe "sysctl"
 
-if node['riak']['package']['enterprise_key'].empty?
-  include_recipe "riak::#{node['riak']['install_method']}"
-else
-  include_recipe "riak::enterprise_package"
-end
-
 file "#{node['riak']['package']['config_dir']}/app.config" do
   content Eth::Config.new(node['riak']['config'].to_hash).pp
   owner "root"
